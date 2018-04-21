@@ -1,12 +1,27 @@
-# F3: Freeling Fast and Furious
+# Freeling Fast and Furious
 
-Using Freeling 4's  web-services with a Python or shell client (instead of using the Python API).
+Using Freeling 4's web-services instead of the APIs. 
 
-Starts the web service with options given in a config file and runs Freeling on a directory.
+You can of course use them directly from the shell, with the `analyzer`and `analyzer_client` programs that are part of Freeling.
 
-These are wrappers to Freeling's `analyzer` and `analyzer_client` programs.
+Or you can write clients (wrappers for those programs) like the Python or Bash ones in this repository (documented below). 
 
-Those programs can also be used directly from the shell (see below)
+##  Using _analyze_ and _analyzer_client_ directly from the shell
+
+See Freeling's [doc](https://talp-upc.gitbooks.io/freeling-4-0-user-manual/content/analyzer.html)
+ 
+For example, start the server with:
+
+    analyze --server on -p 50000 -f es.cfg --outlv semgraph --output xml
+    
+Run a client with:
+
+    analyzer_client 50000 input_file output_file
+
+Or for several files:
+
+    for fn in $(ls "/path/to/input_dir") ; do analyzer_client 50000 \
+      "/path/to/input/dir/$x" > "/path/to/output_dir/${fn%.txt}.xml; done    
 
 ## Shell client
 
@@ -16,9 +31,16 @@ Those programs can also be used directly from the shell (see below)
 
 ### Usage
 
-    ./main.sh PORT INDIR OUTDIR
+If server is not started, set options in script and run:
 
-(Do `chmod +x main.sh` if the file was not executable)
+    ./start_server.sh
+
+Once server is started, run a directory:
+
+    ./run_client.sh PORT INDIR OUTDIR
+
+(Do `chmod +x` on the shell files if they were not executable)
+
 
 ## Python client:
 
@@ -34,16 +56,4 @@ Those programs can also be used directly from the shell (see below)
 or 
 
     python2 main2.py input_dir output_dir
-
-##  Using _analyze_ and _analyzer_client_ directly from the shell
-
-See Freeling's [doc](https://talp-upc.gitbooks.io/freeling-4-0-user-manual/content/analyzer.html)
- 
-For example, start the server with:
-
-    analyze --server on -p 50000 -f es.cfg --outlv semgraph --output xml
-    
-Run a client with:
-
-    analyzer_client 50000 input output
 
