@@ -35,6 +35,7 @@ fl_options = ["-f es.cfg",                   # modern spanish
               "--nonumb",
               "--nodate",
               "--noquant",
+              "--outlv coref "               # full pipeline up to coreference
               "--output naf"]                # compatible with IXA pipes
 
 stop_fl = False                              # kill Freeling after running batch
