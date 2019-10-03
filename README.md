@@ -8,7 +8,7 @@ Or you can write clients (wrappers for those programs) like the Python or Bash o
 
 ##  Using _analyze_ and _analyzer_client_ directly from the shell
 
-See Freeling's [doc](https://talp-upc.gitbooks.io/freeling-4-0-user-manual/content/analyzer.html)
+See Freeling's [doc](https://freeling-user-manual.readthedocs.io/en/v4.1/analyzer/)
  
 For example, start the server with:
 
